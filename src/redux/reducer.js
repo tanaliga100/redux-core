@@ -1,4 +1,12 @@
-import { INCREASE, DECREASE, RESET, REMOVE, GET_TOTAL } from "./action";
+import cartItems from "../cart-items";
+import {
+  INCREASE,
+  DECREASE,
+  RESET,
+  REMOVE,
+  GET_TOTAL,
+  TOGGLE_AMOUNT,
+} from "./action";
 
 export const reducerFunction = (state, action) => {
   switch (action.type) {
@@ -14,7 +22,6 @@ export const reducerFunction = (state, action) => {
         }
         return cartItem;
       });
-
       return {
         ...state,
         cart: newCart,
@@ -29,6 +36,24 @@ export const reducerFunction = (state, action) => {
       return {
         ...state,
         cart: tempCart,
+      };
+    case TOGGLE_AMOUNT:
+      return {
+        ...state,
+        cart: state.cart.map((cartItem) => {
+          if (cartItem.id === action.payload.id) {
+            if (action.payload.toggle === "inc") {
+              return (cartItem = { ...cartItem, amount: cartItem.amount + 1 });
+            }
+            if (action.payload.toggle === "dec") {
+              return (cartItem = {
+                ...cartItem,
+                amount: cartItem.amount - 1,
+              });
+            }
+          }
+          return cartItem;
+        }),
       };
     case REMOVE:
       return {
