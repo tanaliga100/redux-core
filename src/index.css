@@ -13,6 +13,7 @@ Variables
 
 :root {
   --clr-primary: #2680c0;
+  --clr-secondary: rgba(255, 166, 0, 0.831);
   --clr-primary-dark: hsl(205, 100%, 21%);
   --clr-primary-light: hsl(205, 84%, 74%);
   --clr-grey-1: #102a42;
@@ -122,7 +123,7 @@ Navbar
 ===============
 */
 nav {
-  background: var(--clr-primary);
+  background: var(--clr-secondary);
   padding: 1.25rem 2rem;
 }
 .nav-center {
@@ -263,3 +264,8 @@ Cart Item
   font-size: 1.25rem;
   line-height: 1;
 }
+
+/* .cart-section {
+  display: flex;
+  flex: 1;
+} */
