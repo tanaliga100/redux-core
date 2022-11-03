@@ -1,4 +1,3 @@
-import cartItems from "../cart-items";
 import {
   INCREASE,
   DECREASE,
